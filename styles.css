@@ -1,0 +1,21 @@
+#input-box p {
+  margin-bottom: 0px;
+}
+
+#input-box button {
+  margin-top: 10px;
+}
+
+.cell {
+  display: inline-block;
+  background-color: black;
+  /* outline: 1px solid white; */
+}
+
+.snake-body {
+  background-color: green;
+}
+
+.food {
+  background-color: yellow;
+}
