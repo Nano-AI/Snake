@@ -9,6 +9,13 @@ var going = "right";
 var interval;
 var running = false;
 
+const sounds = {
+  eat: new Audio("sounds/eat.wav"),
+  food_spawn: new Audio("sounds/food_spawn.wav"),
+  hiss: new Audio("sounds/hiss.wav"),
+  hit_barrier: new Audio("sounds/hit_barrier.wav"),
+};
+
 var food_location = { x: null, y: null };
 
 const directions = {
@@ -79,6 +86,11 @@ function update() {
   if (going == "down" && direction == "up") {
     direction = "down";
   }
+
+  if (going != direction && Math.random() > 0.5) {
+    sounds.hiss.play();
+  }
+
   addDirection();
   let removed = snakeBody.shift();
   document.getElementById(`${removed.x}-${removed.y}`).className = "cell";
@@ -110,7 +122,7 @@ function update() {
     ) {
       console.log(snakeSize);
       addDirection();
-      snakeSize++;
+      sounds.eat.play();
       food();
     }
     document.getElementById(snakeBody[x].x + "-" + snakeBody[x].y).className =
@@ -120,6 +132,7 @@ function update() {
 }
 
 function addDirection() {
+  snakeSize = snakeBody.length;
   switch (direction) {
     case "right":
       snakeBody.push({
@@ -149,6 +162,7 @@ function addDirection() {
 }
 
 function food() {
+  sounds.food_spawn.play();
   let x = Math.floor(Math.random() * width);
   let y = Math.floor(Math.random() * height);
   food_location = { x: x, y: y };
@@ -164,6 +178,7 @@ function reset() {
 }
 
 function stop() {
+  sounds.hit_barrier.play();
   document.getElementById("snake-grid").innerHTML = "";
   window.clearInterval(interval);
   running = false;
