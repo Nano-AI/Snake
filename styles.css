@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #fafafa;
+}
+
+#input-box p {
+  margin-bottom: 0px;
+}
+
+#input-box button {
+  margin-top: 10px;
+}
+
+.cell {
+  display: inline-block;
+  background-color: black;
+  /* outline: 1px solid white; */
+}
+
+.snake-body {
+  background-color: green;
+}
+
+.food {
+  background-color: yellow;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- CSS only -->
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <span id="input-box">
+      <p>Height:</p>
+      <input type="number" id="height" value="40" />
+      <p>Width:</p>
+      <input type="number" id="width" value="40" />
+      <p>Milliseconds per reset:</p>
+      <input type="number" id="tick-rate" value="250" />
+      <br />
+      <button onclick="draw()">Make</button>
+      <button onClick="stop()">Stop</button>
+    </span>
+    <div id="snake-grid"></div>
+  </body>
+</html>
